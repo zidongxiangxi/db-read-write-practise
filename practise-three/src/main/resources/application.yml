@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+#  datasource:
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/xdchen_test?useUnicode=true&characterEncoding=utf8
+  shardingsphere:
+    datasource:
+      names: master,slave
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/xdchen_test?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
+        maxPoolsize: 20
+        validationQuery: SELECT 1
+        validationQueryTimeout: 1000
+      slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/xdchen_test?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
+        maxPoolsize: 20
+        validationQuery: SELECT 1
+        validationQueryTimeout: 1000
+    masterslave:
+      load-balance-algorithm-type: round_robin
+      name: ms
+      master-data-source-name: master
+      slave-data-source-names: slave
+    props:
+      sql:
+        show: true
