@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          username:
+          password:
+          url:
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_1:
+          username:
+          password:
+          url:
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_2:
+          username:
+          password:
+          url:
+          driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    com.baomidou: debug

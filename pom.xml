@@ -12,6 +12,7 @@
         <module>practise-one</module>
         <module>practise-two</module>
         <module>practise-three</module>
+        <module>practise-four</module>
     </modules>
 
     <properties>
